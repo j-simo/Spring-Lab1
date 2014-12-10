@@ -20,17 +20,16 @@ public class Customer {
 	@Column(name = "firstName", length=32)
 	private String firstName;
 	
-	@Column(name = "secondName", length=32)
-	private String secondName;
+	@Column(name = "lastName", length=32)
+	private String lastName;
 	
 	@Column(name = "address", length=256)
 	private String address;
 	
-	public Customer(Long id, String firstName, String secondName, String address) {
+	public Customer(String firstName, String lastName, String address) {
 		super();
-		this.id = id;
 		this.firstName = firstName;
-		this.secondName = secondName;
+		this.lastName = lastName;
 		this.address = address;
 	}
 	
@@ -54,12 +53,12 @@ public class Customer {
 		this.firstName = firstName;
 	}
 
-	public String getSecondName() {
-		return secondName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setSecondName(String secondName) {
-		this.secondName = secondName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getAddress() {
@@ -72,7 +71,7 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", firstName=" + firstName + ", secondName=" + secondName + ", address=" + address + "]";
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + "]";
 	}
 	
 }

@@ -16,6 +16,26 @@
 		<property name="locations">
 			<list>
 				<value>classpath:application.properties</value>
+				<value>classpath:customers.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="dummyCustomerDao" class="com.capco.spring.dao.DummyCustomerDao">
+		<property name="dummyList">
+			<list>
+				<bean class="com.capco.spring.entity.Customer">
+					<property name="id" value="${customer1.id}"/>
+					<property name="firstName" value="${customer1.firstName}"/>
+					<property name="lastName" value="${customer1.lastName}"/>
+					<property name="address" value="${customer1.address}"/>
+				</bean>
+				<bean class="com.capco.spring.entity.Customer">
+					<property name="id" value="${customer2.id}"/>
+					<property name="firstName" value="${customer2.firstName}"/>
+					<property name="lastName" value="${customer2.lastName}"/>
+					<property name="address" value="${customer2.address}"/>
+				</bean>
 			</list>
 		</property>
 	</bean>
@@ -23,5 +43,7 @@
 	<import resource="applicationContext-persistence.xml"/>
 	<context:component-scan base-package="com.capco.spring"/>
 	<context:annotation-config />
+	
+	<context:property-override location="constants.properties"/>
 
 </beans>

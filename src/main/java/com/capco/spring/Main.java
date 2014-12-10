@@ -1,6 +1,10 @@
 package com.capco.spring;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.capco.spring.entity.Customer;
+import com.capco.spring.service.CustomerService;
 
 public class Main {
 
@@ -18,6 +22,12 @@ public class Main {
 	 * 
 	 */
 	public static void main(String[] args) {
+		context = new ClassPathXmlApplicationContext("applicationContext-base.xml");
 		
+		CustomerService customerService = context.getBean(CustomerService.class);
+		customerService.addCustomer(new Customer("Kacer", "Donald", "Kacerovo"));
+		for (Customer customer : customerService.findAllCustomers()) {
+			System.out.println(customer);
+		}
 	}
 }
